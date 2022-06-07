@@ -62,12 +62,14 @@ body {
 
 img {
     position: static;
-    width: 42px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 body,
@@ -203,6 +205,7 @@ button:focus {
     color: black;
     font-family: 'Montserrat', sans-serif;
     font-size: large;
+    margin-bottom: 10px;
 }
 
 .input_section>form>.input {
