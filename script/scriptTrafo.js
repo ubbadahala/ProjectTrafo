@@ -1,56 +1,35 @@
-const splash = document.querySelector('.splash')
-
-document.addEventListener('DOMContentLoaded', (e) => {
-  setTimeout(() => {
-    splash.classList.add('display-none')
-    Swal.fire({
-      title: 'Welcome!',
-      text: "Here, you can do calculation to find the approximate equivalent circuit parameters referred to the primary side of transformer with ease.",
-      icon: 'info',
-      showCancelButton: false,
-      confirmButtonColor: '#288FB4',
-      confirmButtonText: 'Ok, understood.',
-    })
-  }, 3000)
-})
-
-document.addEventListener("DOMContentLoaded", function() {
-
-  const submitForm = document.getElementById("trafoData");
-
-  submitForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-      runCalculation();
-  });
-});
+import { ConvertDegToRad, ConvertToCartesianOC, ConvertToCartesianSC } from "./polarCartesian.js";
 
 function runCalculation()
 {
   const getFreq = document.getElementById('inputfreq').value;
-  const freq = parseFloat(getFreq)
-  const getPower = document.getElementById('inputP').value; 
-  const power = parseFloat(getPower)
+  const getPower = document.getElementById('inputP').value;
   const getVP = document.getElementById('inputVP').value;
-  const primVolt = parseFloat(getVP)
   const getVS = document.getElementById('inputVS').value;
+
+  const freq = parseFloat(getFreq) 
+  const power = parseFloat(getPower)
+  const primVolt = parseFloat(getVP)
   const secoVolt = parseFloat(getVS)
 
   const getVOC = document.getElementById('inputVOC').value; 
-  const VOC = parseFloat(getVOC)
   const getIOC = document.getElementById('inputIOC').value;
-  const IOC = parseFloat(getIOC)
   const getPOC = document.getElementById('inputPOC').value;
+
+  const VOC = parseFloat(getVOC)
+  const IOC = parseFloat(getIOC)
   const POC = parseFloat(getPOC)
 
   const getVSC = document.getElementById('inputVSC').value;
-  const VSC = parseFloat(getVSC)
-  const getISC = document.getElementById('inputISC').value; 
-  const ISC = parseFloat(getISC)
+  const getISC = document.getElementById('inputISC').value;
   const getPSC = document.getElementById('inputPSC').value;
+
+  const VSC = parseFloat(getVSC) 
+  const ISC = parseFloat(getISC)
   const PSC = parseFloat(getPSC)
 
   let powerFactorOC = (POC / (VOC * IOC)).toFixed(3)
-  console.log("PF = "+ powerFactorOC)
+  console.log("PF = " + powerFactorOC)
 
   const cosPFOC = (Math.acos(powerFactorOC) * (180/Math.PI)).toFixed(3)
   console.log(cosPFOC)
@@ -58,64 +37,8 @@ function runCalculation()
   const iperVOC = (IOC/VOC)
   console.log(iperVOC)
 
-  // Function to convert degree to radian
-  function ConvertDegToRad(degree)
-  {
-      const pi = Math.PI;
-      return (degree * (pi / 180.0));
-  }
-
-  // Function to convert the polar
-  // coordinate to cartesian
-  function ConvertToCartesianOC(polar)
-  {
-      // Convert degrees to radian
-      polar[1] = ConvertDegToRad(
-      polar[1]);
-
-      // Applying the formula:
-      // x = rcos(theta), y = rsin(theta)
-      let cartesian
-      = [ ((polar[0] * Math.cos(polar[1]) + Number.EPSILON) * 100) / 100,
-      ((polar[0] * Math.sin(polar[1]) + Number.EPSILON) * 100) / 100 ];
-
-
-
-      // Print cartesian coordinates
-      realNumberOC = parseFloat((cartesian[0]).toFixed(7));
-      imaginaryNumberOC = parseFloat((cartesian[1]).toFixed(7));
-      
-      console.log(realNumberOC)
-      console.log(imaginaryNumberOC)
-  }
-
-  function ConvertToCartesianSC(polar)
-  {
-      // Convert degrees to radian
-      polar[1] = ConvertDegToRad(
-      polar[1]);
-
-      // Applying the formula:
-      // x = rcos(theta), y = rsin(theta)
-      let cartesian
-      = [ ((polar[0] * Math.cos(polar[1]) + Number.EPSILON) * 100) / 100,
-      ((polar[0] * Math.sin(polar[1]) + Number.EPSILON) * 100) / 100 ];
-
-
-
-      // Print cartesian coordinates
-      realNumberSC = parseFloat((cartesian[0]).toFixed(7));
-      imaginaryNumberSC = parseFloat((cartesian[1]).toFixed(7));
-      
-      console.log(realNumberSC)
-      console.log(imaginaryNumberSC)
-  }
-
   // Driver code
   let polarOC=[iperVOC, -cosPFOC];
-  // Function to convert polar
-  // coordinates to equivalent
-  // cartesian coordinates
   ConvertToCartesianOC(polarOC);
 
   console.log("YE = " + realNumberOC + " " + imaginaryNumberOC + "j")
@@ -137,6 +60,7 @@ function runCalculation()
 
   let polarSC=[vperISC, cosPFSC]
   ConvertToCartesianSC(polarSC);
+
   console.log("ZSE = " + realNumberSC + " " + imaginaryNumberSC + "j")
   console.log("REQ = " + realNumberSC)
   console.log("XEQ = " + imaginaryNumberSC)
@@ -159,3 +83,5 @@ function runCalculation()
   outREQ.value = realNumberSC + " Ω"
   outXEQ.value = imaginaryNumberSC +" Ω"
 }
+
+export {runCalculation}
