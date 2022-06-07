@@ -1,87 +1,87 @@
-import { ConvertDegToRad, ConvertToCartesianOC, ConvertToCartesianSC } from "./polarCartesian.js";
+/* eslint-disable no-unused-vars */
+import { ConvertToCartesianOC, ConvertToCartesianSC, realNumberOC, imaginaryNumberOC, realNumberSC, imaginaryNumberSC } from './polarCartesian.js'
 
-function runCalculation()
-{
-  const getFreq = document.getElementById('inputfreq').value;
-  const getPower = document.getElementById('inputP').value;
-  const getVP = document.getElementById('inputVP').value;
-  const getVS = document.getElementById('inputVS').value;
+function runCalculation () {
+  const getFreq = document.getElementById('inputfreq').value
+  const getPower = document.getElementById('inputP').value
+  const getVP = document.getElementById('inputVP').value
+  const getVS = document.getElementById('inputVS').value
 
-  const freq = parseFloat(getFreq) 
+  const freq = parseFloat(getFreq)
   const power = parseFloat(getPower)
   const primVolt = parseFloat(getVP)
   const secoVolt = parseFloat(getVS)
 
-  const getVOC = document.getElementById('inputVOC').value; 
-  const getIOC = document.getElementById('inputIOC').value;
-  const getPOC = document.getElementById('inputPOC').value;
+  const getVOC = document.getElementById('inputVOC').value
+  const getIOC = document.getElementById('inputIOC').value
+  const getPOC = document.getElementById('inputPOC').value
 
   const VOC = parseFloat(getVOC)
   const IOC = parseFloat(getIOC)
   const POC = parseFloat(getPOC)
 
-  const getVSC = document.getElementById('inputVSC').value;
-  const getISC = document.getElementById('inputISC').value;
-  const getPSC = document.getElementById('inputPSC').value;
+  const getVSC = document.getElementById('inputVSC').value
+  const getISC = document.getElementById('inputISC').value
+  const getPSC = document.getElementById('inputPSC').value
 
-  const VSC = parseFloat(getVSC) 
+  const VSC = parseFloat(getVSC)
   const ISC = parseFloat(getISC)
   const PSC = parseFloat(getPSC)
 
-  let powerFactorOC = (POC / (VOC * IOC)).toFixed(3)
-  console.log("PF = " + powerFactorOC)
+  const powerFactorOC = (POC / (VOC * IOC)).toFixed(3)
+  console.log('PF = ' + powerFactorOC)
 
-  const cosPFOC = (Math.acos(powerFactorOC) * (180/Math.PI)).toFixed(3)
+  const cosPFOC = (Math.acos(powerFactorOC) * (180 / Math.PI)).toFixed(3)
   console.log(cosPFOC)
 
-  const iperVOC = (IOC/VOC)
+  const iperVOC = (IOC / VOC)
   console.log(iperVOC)
 
   // Driver code
-  let polarOC=[iperVOC, -cosPFOC];
-  ConvertToCartesianOC(polarOC);
+  const polarOC = [iperVOC, -cosPFOC]
+  ConvertToCartesianOC(polarOC)
 
-  console.log("YE = " + realNumberOC + " " + imaginaryNumberOC + "j")
+  console.log('YE = ' + realNumberOC + ' ' + imaginaryNumberOC + 'j')
 
-  let rC = (1/realNumberOC).toFixed(4);
-  let xM = Math.abs((1/imaginaryNumberOC).toFixed(4));
+  const rC = (1 / realNumberOC).toFixed(4)
+  const xM = Math.abs((1 / imaginaryNumberOC).toFixed(4))
 
-  console.log("RC = " + rC)
-  console.log("XM = " + xM)
+  console.log('RC = ' + rC)
+  console.log('XM = ' + xM)
 
-  let powerFactorSC = (PSC / (VSC * ISC)).toFixed(3)
-  console.log("PF = " + powerFactorSC)
+  const powerFactorSC = (PSC / (VSC * ISC)).toFixed(3)
+  console.log('PF = ' + powerFactorSC)
 
-  const cosPFSC = (Math.acos(powerFactorSC) * (180/Math.PI)).toFixed(3)
+  const cosPFSC = (Math.acos(powerFactorSC) * (180 / Math.PI)).toFixed(3)
   console.log(cosPFSC)
 
-  const vperISC = (VSC/ISC)
+  const vperISC = (VSC / ISC)
   console.log(vperISC)
 
-  let polarSC=[vperISC, cosPFSC]
-  ConvertToCartesianSC(polarSC);
+  const polarSC = [vperISC, cosPFSC]
+  ConvertToCartesianSC(polarSC)
 
-  console.log("ZSE = " + realNumberSC + " " + imaginaryNumberSC + "j")
-  console.log("REQ = " + realNumberSC)
-  console.log("XEQ = " + imaginaryNumberSC)
+  console.log('ZSE = ' + realNumberSC + ' ' + imaginaryNumberSC + 'j')
+  console.log('REQ = ' + realNumberSC)
+  console.log('XEQ = ' + imaginaryNumberSC)
 
-  const outPFOC = document.getElementById('outputPFOC');
-  const outYE = document.getElementById('outputYE');
-  const outRC = document.getElementById('outputRC');
-  const outXM = document.getElementById('outputXM');
-  const outPFSC = document.getElementById('outputPFSC');
-  const outZSE = document.getElementById('outputZSE');
-  const outREQ = document.getElementById('outputREQ');
-  const outXEQ = document.getElementById('outputXEQ');
+  const outPFOC = document.getElementById('outputPFOC')
+  const outYE = document.getElementById('outputYE')
+  const outRC = document.getElementById('outputRC')
+  const outXM = document.getElementById('outputXM')
+  const outPFSC = document.getElementById('outputPFSC')
+  const outZSE = document.getElementById('outputZSE')
+  const outREQ = document.getElementById('outputREQ')
+  const outXEQ = document.getElementById('outputXEQ')
 
   outPFOC.value = powerFactorOC
-  outYE.value = realNumberOC + " " + imaginaryNumberOC + "j"
-  outRC.value  = rC + " Ω"
-  outXM.value = xM + " Ω"
+  outYE.value = realNumberOC + ' ' + imaginaryNumberOC + 'j'
+  outRC.value = rC + ' Ω'
+  outXM.value = xM + ' Ω'
   outPFSC.value = powerFactorSC
-  outZSE.value = realNumberSC + " " + imaginaryNumberSC + "j" + " Ω"
-  outREQ.value = realNumberSC + " Ω"
-  outXEQ.value = imaginaryNumberSC +" Ω"
+  outZSE.value = realNumberSC + ' ' + imaginaryNumberSC + 'j' + ' Ω'
+  outREQ.value = realNumberSC + ' Ω'
+  outXEQ.value = imaginaryNumberSC + ' Ω'
 }
 
-export {runCalculation}
+export default runCalculation
