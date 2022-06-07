@@ -80,7 +80,10 @@ button {
 
 input {
     font-size: 16px;
-    color: #000000 !important;
+}
+
+.disabledout {
+    color: black;
 }
 
 main {
