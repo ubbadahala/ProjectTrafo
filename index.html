@@ -11,6 +11,11 @@
 
 <body>
     <main>
+
+        <div class="splash">
+            <h1 class="fade-in uppercase">Welcome!</h1>
+        </div>
+
         <section class="inputall">
             <section class="input_section card" id="inputTrafoData">
                 <h2>Open and Short Circuit Transformer Test</h2>
@@ -18,7 +23,7 @@
                 <form id="trafoData">
                     <div class="input">
                         <label for="inputP">Transformer Power</label>
-                        <input id="inputP" type="number" step="0.001" autocomplete="off" required>
+                        <input id="inputP" type="number" min="0" step="0.001" autocomplete="off" required>
                     </div>
                     <div class="input">
                         <label for="inputVP">Primary Side Voltage</label>
@@ -30,7 +35,7 @@
                     </div>
                     <div class="input">
                         <label for="inputfreq">Frequency</label>
-                        <input id="inputfreq" type="number" step="0.001" autocomplete="off" required>
+                        <input id="inputfreq" type="number" min="0" step="0.001" autocomplete="off" required>
                     </div>
 
                     <div class="input">
@@ -43,7 +48,7 @@
                     </div>
                     <div class="input">
                         <label for="inputPOC">Open-Circuit Power</label>
-                        <input id="inputPOC" type="number" step="0.001" autocomplete="off" required>
+                        <input id="inputPOC" type="number" min="0" step="0.001" autocomplete="off" required>
                     </div>
 
                     <div class="input">
@@ -56,7 +61,7 @@
                     </div>
                     <div class="input">
                         <label for="inputPSC">Short-Circuit Power</label>
-                        <input id="inputPSC" type="number" step="0.001" autocomplete="off" required>
+                        <input id="inputPSC" type="number" min="0" step="0.001" autocomplete="off" required>
                     </div>
                     <button id="bookSubmit" type="submit">Calculate</button>
                 </form>
@@ -72,7 +77,7 @@
                         <input id="outputPFOC" autocomplete="off" required disabled="disabled">
                     </div>
                     <div class="input">
-                        <label for="outputYE">YE</label>
+                        <label for="outputYE">Excitation Admittance (YE)</label>
                         <input id="outputYE" autocomplete="off" required disabled="disabled">
                     </div>
                     <div class="input">
@@ -89,16 +94,16 @@
                         <input id="outputPFSC" autocomplete="off" required disabled="disabled">
                     </div>
                     <div class="input">
-                        <label for="outputZSE">ZSE</label>
+                        <label for="outputZSE">Series Impedance (ZSE)</label>
                         <input id="outputZSE" autocomplete="off" required disabled="disabled">
                     </div>
                     <div class="input">
-                        <label for="outputREQ">R Equivalent</label>
+                        <label for="outputREQ">Equivalent Resistance (Req)</label>
                         <input id="outputREQ" autocomplete="off" required disabled="disabled">
                     </div>
 
                     <div class="input">
-                        <label for="outputXEQ">X Equivalent</label>
+                        <label for="outputXEQ">Equivalent Reactance (Xeq)</label>
                         <input id="outputXEQ" autocomplete="off" required disabled="disabled">
                     </div>
                 </form>

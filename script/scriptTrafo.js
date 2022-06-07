@@ -1,3 +1,19 @@
+const splash = document.querySelector('.splash')
+
+document.addEventListener('DOMContentLoaded', (e) => {
+  setTimeout(() => {
+    splash.classList.add('display-none')
+    Swal.fire({
+      title: 'Welcome!',
+      text: "Here, you can do calculation to find the approximate equivalent circuit parameters referred to the primary side of transformer with ease.",
+      icon: 'info',
+      showCancelButton: false,
+      confirmButtonColor: '#288FB4',
+      confirmButtonText: 'Ok, understood.',
+    })
+  }, 3000)
+})
+
 document.addEventListener("DOMContentLoaded", function() {
 
   const submitForm = document.getElementById("trafoData");
@@ -136,10 +152,10 @@ function runCalculation()
 
   outPFOC.value = powerFactorOC
   outYE.value = realNumberOC + " " + imaginaryNumberOC + "j"
-  outRC.value  = rC
-  outXM.value = xM
+  outRC.value  = rC + " Ω"
+  outXM.value = xM + " Ω"
   outPFSC.value = powerFactorSC
-  outZSE.value = realNumberSC + " " + imaginaryNumberSC + "j"
-  outREQ.value = realNumberSC
-  outXEQ.value = imaginaryNumberSC
+  outZSE.value = realNumberSC + " " + imaginaryNumberSC + "j" + " Ω"
+  outREQ.value = realNumberSC + " Ω"
+  outXEQ.value = imaginaryNumberSC +" Ω"
 }
