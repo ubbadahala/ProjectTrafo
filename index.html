@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open and Short Circuit Transformer Test</title>
+    <link rel="icon" type="image/gif/png" href="assets/book.png">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <main>
+        <section class="inputall">
+            <section class="input_section card" id="inputTrafoData">
+                <h2>Open and Short Circuit Transformer Test</h2>
+
+                <form id="trafoData">
+                    <div class="input">
+                        <label for="inputP">Transformer Power</label>
+                        <input id="inputP" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="inputVP">Primary Side Voltage</label>
+                        <input id="inputVP" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="inputVS">Secondary Side Voltage</label>
+                        <input id="inputVS" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="inputfreq">Frequency</label>
+                        <input id="inputfreq" autocomplete: "off" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="inputVOC">Open-Circuit Voltage</label>
+                        <input id="inputVOC" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="inputIOC">Open-Circuit Current</label>
+                        <input id="inputIOC" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="inputPOC">Open-Circuit Power</label>
+                        <input id="inputPOC" autocomplete: "off" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="inputVSC">Short-Circuit Voltage</label>
+                        <input id="inputVSC" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="inputISC">Short-Circuit Current</label>
+                        <input id="inputISC" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="inputPSC">Short-Circuit Power</label>
+                        <input id="inputPSC" autocomplete: "off" required>
+                    </div>
+                    <button id="bookSubmit" type="submit">Calculate</button>
+                </form>
+            </section>
+        </section>
+        <section class="bookshelf inputall">
+            <section class="input_section book_shelf card">
+                <h2>Calculated Data</h2>
+
+                <form id="outputData">
+                    <div class="input">
+                        <label for="outputPFOC">PF Open-Circuit</label>
+                        <input id="outputPFOC" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="outputYE">YE</label>
+                        <input id="outputYE" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="outputRC">RC</label>
+                        <input id="outputRC" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="outputXM">XM</label>
+                        <input id="outputXM" autocomplete: "off" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="ouputPFSC">PF Short-Circuit</label>
+                        <input id="outputPFSC" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="outputZSE">ZSE</label>
+                        <input id="outputZSE" autocomplete: "off" required>
+                    </div>
+                    <div class="input">
+                        <label for="outputREQ">R Equivalent</label>
+                        <input id="outputREQ" autocomplete: "off" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="outputXEQ">X Equivalent</label>
+                        <input id="outputXEQ" autocomplete: "off" required>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Transformer Apps &copy; 2022, Developed with ❤️ by Ala'</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/script/scriptTrafo.js"></script>
+
+</body>
+
+</html>
