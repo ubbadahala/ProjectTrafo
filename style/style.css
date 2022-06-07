@@ -80,7 +80,7 @@ button {
 
 input {
     font-size: 16px;
-    color: black;
+    color: #000000 !important;
 }
 
 main {
