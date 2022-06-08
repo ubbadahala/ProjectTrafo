@@ -384,13 +384,6 @@ h3 {
     margin: 2%;
 }
 
-#bookSubmit:hover,
-#searchSubmit:hover,
-.blue:hover {
-    background-color: #18566d;
-    color: white;
-}
-
 #incompleteBookshelfList {
     max-height: 300px;
     overflow-y: auto;
