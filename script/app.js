@@ -30,3 +30,23 @@ document.addEventListener('DOMContentLoaded', function () {
     runCalculation()
   })
 })
+
+const delButton = document.getElementById('deleteData')
+
+delButton.addEventListener('click', function () {
+  // eslint-disable-next-line no-undef
+  Swal.fire({
+    title: 'Clear Data?',
+    text: 'Are you sure to delete all the input parameters?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#f44336',
+    cancelButtonColor: '#288FB4',
+    confirmButtonText: 'Yes, delete it',
+    cancelButtonText: 'Cancel'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById('trafoData').reset()
+    }
+  })
+})

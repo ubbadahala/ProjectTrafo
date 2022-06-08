@@ -21,7 +21,7 @@
 
                 <form id="trafoData">
                     <div class="input">
-                        <label for="inputP">Transformer Power (P)</label>
+                        <label for="inputP">Transformer Power (VA)</label>
                         <input id="inputP" type="number" min="0" step="0.001" autocomplete="off" required>
                     </div>
                     <div class="input">
@@ -62,7 +62,10 @@
                         <label for="inputPSC">Short-Circuit Power (Psc)</label>
                         <input id="inputPSC" type="number" min="0" step="0.001" autocomplete="off" required>
                     </div>
-                    <button id="bookSubmit" type="submit">Calculate</button>
+                    <div class="buttonContainer">
+                        <button class="green" id="bookSubmit" type="submit">Calculate</button>
+                        <button class="red" id="deleteData" type="submit">Clear Data</button>
+                    </div>
                 </form>
             </section>
         </section>
@@ -72,37 +75,37 @@
                 <h2>Calculated Data</h2>
 
                 <form id="outputData">
-                    <div class="input">
+                    <div class="output">
                         <label for="outputPFOC">PF Open-Circuit</label>
                         <input id="outputPFOC" autocomplete="off" required disabled="disabled">
                     </div>
-                    <div class="input">
+                    <div class="output">
                         <label for="outputYE">Excitation Admittance (YE)</label>
                         <input id="outputYE" autocomplete="off" required disabled="disabled">
                     </div>
-                    <div class="input">
+                    <div class="output">
                         <label for="outputRC">RC</label>
                         <input id="outputRC" autocomplete="off" required disabled="disabled">
                     </div>
-                    <div class="input">
+                    <div class="output">
                         <label for="outputXM">XM</label>
                         <input id="outputXM" autocomplete="off" required disabled="disabled">
                     </div>
 
-                    <div class="input">
+                    <div class="output">
                         <label for="ouputPFSC">PF Short-Circuit</label>
                         <input id="outputPFSC" autocomplete="off" required disabled="disabled">
                     </div>
-                    <div class="input">
+                    <div class="output">
                         <label for="outputZSE">Series Impedance (ZSE)</label>
                         <input id="outputZSE" autocomplete="off" required disabled="disabled">
                     </div>
-                    <div class="input">
+                    <div class="output">
                         <label for="outputREQ">Equivalent Resistance (Req)</label>
                         <input id="outputREQ" autocomplete="off" required disabled="disabled">
                     </div>
 
-                    <div class="input">
+                    <div class="output">
                         <label for="outputXEQ">Equivalent Reactance (Xeq)</label>
                         <input id="outputXEQ" autocomplete="off" required disabled="disabled">
                     </div>

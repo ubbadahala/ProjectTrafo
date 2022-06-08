@@ -89,7 +89,8 @@ main {
     width: 80%;
     margin: 0 auto;
     padding: 16px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 input:focus,
@@ -134,7 +135,7 @@ button:focus {
 .red,
 .orange,
 .blue {
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .green {
@@ -180,7 +181,7 @@ button:focus {
 }
 
 .blue {
-    background-color: #288FB4;
+    background-color: #376e82;
     /* Green */
     border-radius: 10px;
     border: none;
@@ -208,8 +209,8 @@ button:focus {
     margin-bottom: 10px;
 }
 
-.input_section>form>.input {
-    margin: 8px 0;
+.input_section>form>.input, .input_section>form>.output {
+    margin: 8px 15px;
 }
 
 .input_section>form>button {
@@ -218,9 +219,9 @@ button:focus {
     color: white;
     border: 0;
     display: block;
-    width: 100%;
-    padding: 8px;
+    padding: 7px 10px;
     cursor: pointer;
+    margin: 10px 0 0 15px;
 }
 
 .input_section>form>.input>input {
@@ -234,9 +235,25 @@ button:focus {
     border-radius: 10px;
 }
 
-.input_section>form>.input>label {
+.input_section>form>.output>input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background: #2323231d;
+    border: 1px solid #E2E6EE;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 18px rgba(158, 168, 189, 0.31);
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.input_section>form>.input>label, .input_section>form>.output>label{
     color: black;
     font-size: smaller;
+}
+
+.input_section>form>.output>input{
+    color: black !important;
 }
 
 .input_section>form>.input_inline {
@@ -378,6 +395,10 @@ h3 {
 #completeBookshelfList {
     max-height: 200px;
     overflow-y: auto;
+}
+
+.buttonContainer {
+    margin: 10px 0 0 15px;
 }
 
 footer {
